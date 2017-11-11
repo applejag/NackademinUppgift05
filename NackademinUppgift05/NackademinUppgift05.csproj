@@ -55,13 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animal.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
     <Compile Include="EaterType.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
     <Compile Include="Environment.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
@@ -74,7 +74,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Species.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
     <Compile Include="UI\AnimalPage.cs">
       <SubType>Form</SubType>
@@ -91,10 +91,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Veterinarian.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
     <Compile Include="Visit.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Zoophobia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zoophobia.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zoophobia.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zoophobia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
     <Compile Include="Zoophobia.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -128,7 +138,6 @@
     </Compile>
     <EntityDeploy Include="Zoophobia.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Zoophobia.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Zoophobia.edmx.diagram">
       <DependentUpon>Zoophobia.edmx</DependentUpon>
@@ -146,6 +155,17 @@
     <Content Include="Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model.cs</LastGenOutput>
+      <DependentUpon>Zoophobia.edmx</DependentUpon>
+    </Content>
+    <Content Include="Zoophobia.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Zoophobia.Context.cs</LastGenOutput>
+      <DependentUpon>Zoophobia.edmx</DependentUpon>
+    </Content>
+    <Content Include="Zoophobia.edmx.sql" />
+    <Content Include="Zoophobia.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Zoophobia.cs</LastGenOutput>
       <DependentUpon>Zoophobia.edmx</DependentUpon>
     </Content>
   </ItemGroup>
