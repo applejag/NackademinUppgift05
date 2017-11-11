@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a59fb5d3dcf94c8ab61375194e6fff4d" Name="Diagram1" ZoomLevel="97" ShowGrid="true" DisplayType="true" >
+        <EntityTypeShape EntityType="Zoophobia.Animal" Width="2.375" PointX="1.125" PointY="0.5" />
+        <EntityTypeShape EntityType="Zoophobia.Veterinarian" Width="1.5" PointX="4" PointY="3.125" />
+        <EntityTypeShape EntityType="Zoophobia.Visit" Width="2.375" PointX="1.125" PointY="3.75" />
+        <AssociationConnector Association="Zoophobia.AnimalVisit" />
+        <AssociationConnector Association="Zoophobia.VeterinarianVisit" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Zoophobia.EaterType" Width="1.5" PointX="8" PointY="3.125" />
+        <EntityTypeShape EntityType="Zoophobia.Environment" Width="1.5" PointX="6" PointY="3.125" />
+        <EntityTypeShape EntityType="Zoophobia.Species" Width="2.125" PointX="4" PointY="0.5" />
+        <AssociationConnector Association="Zoophobia.EaterTypeSpecies" />
+        <AssociationConnector Association="Zoophobia.SpeciesEnvironment" />
+        <AssociationConnector Association="Zoophobia.AnimalSpecies" />
+        <AssociationConnector Association="Zoophobia.AnimalParents" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
