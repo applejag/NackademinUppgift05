@@ -64,6 +64,9 @@
       <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\EaterType.cs" />
+    <Compile Include="Models\Environment.cs" />
+    <Compile Include="Models\Species.cs" />
     <Compile Include="Species.cs">
       <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
@@ -81,6 +84,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\SpeciesComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SpeciesComboBox.Designer.cs">
+      <DependentUpon>SpeciesComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SpeciesPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SpeciesPage.Designer.cs">
+      <DependentUpon>SpeciesPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Veterinarian.cs">
       <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
@@ -121,6 +136,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SpeciesComboBox.resx">
+      <DependentUpon>SpeciesComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SpeciesPage.resx">
+      <DependentUpon>SpeciesPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

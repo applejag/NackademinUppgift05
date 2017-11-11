@@ -36,6 +36,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.submitButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
+			this.animalSpeciesLabel = new System.Windows.Forms.Label();
+			this.animalSpeciesComboBox = new NackademinUppgift05.UI.SpeciesComboBox();
 			this.SuspendLayout();
 			// 
 			// animalNameTextBox
@@ -116,6 +118,26 @@
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = true;
 			// 
+			// animalSpeciesLabel
+			// 
+			this.animalSpeciesLabel.AutoSize = true;
+			this.animalSpeciesLabel.Location = new System.Drawing.Point(12, 126);
+			this.animalSpeciesLabel.Name = "animalSpeciesLabel";
+			this.animalSpeciesLabel.Size = new System.Drawing.Size(45, 13);
+			this.animalSpeciesLabel.TabIndex = 8;
+			this.animalSpeciesLabel.Text = "Species";
+			// 
+			// animalSpeciesComboBox
+			// 
+			this.animalSpeciesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.animalSpeciesComboBox.Location = new System.Drawing.Point(12, 143);
+			this.animalSpeciesComboBox.MaximumSize = new System.Drawing.Size(500, 21);
+			this.animalSpeciesComboBox.Name = "animalSpeciesComboBox";
+			this.animalSpeciesComboBox.Size = new System.Drawing.Size(303, 21);
+			this.animalSpeciesComboBox.TabIndex = 9;
+			this.animalSpeciesComboBox.Load += new System.EventHandler(this.speciesComboBox1_Load);
+			// 
 			// AnimalPage
 			// 
 			this.AcceptButton = this.submitButton;
@@ -123,6 +145,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.cancelButton;
 			this.ClientSize = new System.Drawing.Size(327, 291);
+			this.Controls.Add(this.animalSpeciesComboBox);
+			this.Controls.Add(this.animalSpeciesLabel);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.submitButton);
 			this.Controls.Add(this.label3);
@@ -148,5 +172,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button submitButton;
 		private System.Windows.Forms.Button cancelButton;
+		private System.Windows.Forms.Label animalSpeciesLabel;
+		private SpeciesComboBox animalSpeciesComboBox;
 	}
 }

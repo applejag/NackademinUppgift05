@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
 using System.Data.Entity;
+using NackademinUppgift05.Migrations;
 
 namespace NackademinUppgift05.UI
 {
@@ -13,6 +14,12 @@ namespace NackademinUppgift05.UI
 
 		private void Form1_Load(object sender, System.EventArgs e)
 		{
+			using (var zoo = new ZoophobiaContainer())
+			{
+				Configuration.MySeedBecauseModelFirstMessesMeUp(zoo);
+				zoo.SaveChanges();
+			}
+
 			LoadAnimals();
 		}
 

@@ -40,5 +40,10 @@ namespace NackademinUppgift05.UI
 			DialogResult = DialogResult.OK;
 			Close();
 		}
+
+		private void speciesComboBox1_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
