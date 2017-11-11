@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace NackademinUppgift05.Models
 {
 	public class Animal
 	{
-		public int AnimalId { get; set; }
-		public string AnimalName { get; set; }
-		public string AnimalOrigin { get; set; }
-		public float AnimalWeight { get; set; }
-		
-		public Species Species { get; set; }
-		public ICollection<Visit> Visits { get; set; }
-		public ICollection<Animal> Parents { get; set; }
-		public ICollection<Animal> Children { get; set; }
+		public int Id { get; set; }
+		[Required, MaxLength(255)]
+		public string Name { get; set; }
+		[MaxLength(255)]
+		public string Origin { get; set; }
+		public float Weight { get; set; }
+
+		public virtual Species Species { get; set; }
+		public virtual ICollection<Visit> Visits { get; set; }
+		public virtual ICollection<Animal> Parents { get; set; }
+		public virtual ICollection<Animal> Children { get; set; }
 	}
 }

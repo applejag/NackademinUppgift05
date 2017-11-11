@@ -1,11 +1,16 @@
-﻿namespace NackademinUppgift05.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace NackademinUppgift05.Models
 {
 	public class Species
 	{
-		public int SpeciesId { get; set; }
-		public string SpeciesLabel { get; set; }
-		
-		public EaterType EaterType { get; set; }
-		public Environment Environment { get; set; }
+		public int Id { get; set; }
+		[Required, MaxLength(255)]
+		public string Label { get; set; }
+
+		[Required]
+		public virtual EaterType EaterType { get; set; }
+		[Required]
+		public virtual Environment Environment { get; set; }
 	}
 }
