@@ -1,4 +1,4 @@
-﻿namespace NackademinUppgift05
+﻿namespace NackademinUppgift05.UI
 {
 	partial class Form1
 	{
