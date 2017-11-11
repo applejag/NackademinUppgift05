@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/11/2017 20:03:53
+-- Date Created: 11/11/2017 23:33:10
 -- Generated from EDMX file: D:\Projekt\VS\NackademinUppgift05\NackademinUppgift05\Zoophobia.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,47 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_AnimalVisit]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Visits] DROP CONSTRAINT [FK_AnimalVisit];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VeterinarianVisit]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Visits] DROP CONSTRAINT [FK_VeterinarianVisit];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EaterTypeSpecies]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Species] DROP CONSTRAINT [FK_EaterTypeSpecies];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SpeciesEnvironment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Species] DROP CONSTRAINT [FK_SpeciesEnvironment];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AnimalSpecies]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Animals] DROP CONSTRAINT [FK_AnimalSpecies];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AnimalParents]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Animals] DROP CONSTRAINT [FK_AnimalParents];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Animals]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Animals];
+GO
+IF OBJECT_ID(N'[dbo].[Veterinarians]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Veterinarians];
+GO
+IF OBJECT_ID(N'[dbo].[Visits]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Visits];
+GO
+IF OBJECT_ID(N'[dbo].[EaterTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EaterTypes];
+GO
+IF OBJECT_ID(N'[dbo].[Environments]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Environments];
+GO
+IF OBJECT_ID(N'[dbo].[Species]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Species];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -33,8 +69,7 @@ CREATE TABLE [dbo].[Animals] (
     [Name] nvarchar(255)  NOT NULL,
     [Origin] nvarchar(255)  NOT NULL,
     [Weight] float  NOT NULL,
-    [SpeciesId] int  NOT NULL,
-    [AnimalId] int  NOT NULL
+    [SpeciesId] int  NOT NULL
 );
 GO
 
@@ -77,6 +112,13 @@ CREATE TABLE [dbo].[Species] (
 );
 GO
 
+-- Creating table 'AnimalParents'
+CREATE TABLE [dbo].[AnimalParents] (
+    [ChildId] int  NOT NULL,
+    [ParentId] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -115,6 +157,12 @@ GO
 ALTER TABLE [dbo].[Species]
 ADD CONSTRAINT [PK_Species]
     PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [ChildId], [ParentId] in table 'AnimalParents'
+ALTER TABLE [dbo].[AnimalParents]
+ADD CONSTRAINT [PK_AnimalParents]
+    PRIMARY KEY CLUSTERED ([ChildId], [ParentId] ASC);
 GO
 
 -- --------------------------------------------------
@@ -196,19 +244,28 @@ ON [dbo].[Animals]
     ([SpeciesId]);
 GO
 
--- Creating foreign key on [AnimalId] in table 'Animals'
-ALTER TABLE [dbo].[Animals]
-ADD CONSTRAINT [FK_AnimalParents]
-    FOREIGN KEY ([AnimalId])
+-- Creating foreign key on [ChildId] in table 'AnimalParents'
+ALTER TABLE [dbo].[AnimalParents]
+ADD CONSTRAINT [FK_AnimalParenting]
+    FOREIGN KEY ([ChildId])
     REFERENCES [dbo].[Animals]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_AnimalParents'
-CREATE INDEX [IX_FK_AnimalParents]
-ON [dbo].[Animals]
-    ([AnimalId]);
+-- Creating foreign key on [ParentId] in table 'AnimalParents'
+ALTER TABLE [dbo].[AnimalParents]
+ADD CONSTRAINT [FK_AnimalChildering]
+    FOREIGN KEY ([ParentId])
+    REFERENCES [dbo].[Animals]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AnimalChildering'
+CREATE INDEX [IX_FK_AnimalChildering]
+ON [dbo].[AnimalParents]
+    ([ParentId]);
 GO
 
 -- --------------------------------------------------

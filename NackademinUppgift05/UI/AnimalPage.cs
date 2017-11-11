@@ -14,12 +14,25 @@ namespace NackademinUppgift05.UI
 	public partial class AnimalPage : Form
 	{
 		private Animal Animal { get; }
+		private readonly bool isNew;
 
 		public AnimalPage(Animal animal = null)
 		{
-			this.Animal = animal ?? new Animal();
+			isNew = animal == null;
+			Animal = animal ?? new Animal();
 
 			InitializeComponent();
+		}
+		
+		private void AnimalPage_Load(object sender, EventArgs e)
+		{
+			if (!isNew)
+				this.Text = "Change animal info";
+
+			animalNameTextBox.Text = Animal.Name;
+			animalOriginTextBox.Text = Animal.Origin;
+			animalWeightTextBox.Text = Animal.Weight.ToString(CultureInfo.CurrentCulture);
+			animalSpeciesComboBox.SelectedSpecies = Animal.Species;
 		}
 
 		private void animalWeightTextBox_Validating(object sender, CancelEventArgs e)
@@ -37,6 +50,18 @@ namespace NackademinUppgift05.UI
 
 		private void submitButton_Click(object sender, EventArgs e)
 		{
+			// Save changes
+			using (var zoo = new ZoophobiaContainer())
+			{
+				if (isNew)
+				{
+					zoo.Animals.Add(Animal);
+				}
+
+				zoo.SaveChanges();
+			}
+				
+
 			DialogResult = DialogResult.OK;
 			Close();
 		}

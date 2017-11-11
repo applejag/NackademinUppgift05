@@ -46,7 +46,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.animalNameTextBox.Location = new System.Drawing.Point(12, 25);
 			this.animalNameTextBox.Name = "animalNameTextBox";
-			this.animalNameTextBox.Size = new System.Drawing.Size(303, 20);
+			this.animalNameTextBox.Size = new System.Drawing.Size(416, 20);
 			this.animalNameTextBox.TabIndex = 0;
 			// 
 			// animalOriginTextBox
@@ -55,7 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.animalOriginTextBox.Location = new System.Drawing.Point(12, 64);
 			this.animalOriginTextBox.Name = "animalOriginTextBox";
-			this.animalOriginTextBox.Size = new System.Drawing.Size(303, 20);
+			this.animalOriginTextBox.Size = new System.Drawing.Size(416, 20);
 			this.animalOriginTextBox.TabIndex = 1;
 			// 
 			// animalWeightTextBox
@@ -64,7 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.animalWeightTextBox.Location = new System.Drawing.Point(12, 103);
 			this.animalWeightTextBox.Name = "animalWeightTextBox";
-			this.animalWeightTextBox.Size = new System.Drawing.Size(303, 20);
+			this.animalWeightTextBox.Size = new System.Drawing.Size(416, 20);
 			this.animalWeightTextBox.TabIndex = 2;
 			this.animalWeightTextBox.Text = "0";
 			this.animalWeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.animalWeightTextBox_Validating);
@@ -99,7 +99,7 @@
 			// submitButton
 			// 
 			this.submitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.submitButton.Location = new System.Drawing.Point(240, 256);
+			this.submitButton.Location = new System.Drawing.Point(353, 316);
 			this.submitButton.Name = "submitButton";
 			this.submitButton.Size = new System.Drawing.Size(75, 23);
 			this.submitButton.TabIndex = 6;
@@ -111,7 +111,7 @@
 			// 
 			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelButton.Location = new System.Drawing.Point(159, 256);
+			this.cancelButton.Location = new System.Drawing.Point(272, 316);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(75, 23);
 			this.cancelButton.TabIndex = 7;
@@ -134,7 +134,7 @@
 			this.animalSpeciesComboBox.Location = new System.Drawing.Point(12, 143);
 			this.animalSpeciesComboBox.MaximumSize = new System.Drawing.Size(500, 21);
 			this.animalSpeciesComboBox.Name = "animalSpeciesComboBox";
-			this.animalSpeciesComboBox.Size = new System.Drawing.Size(303, 21);
+			this.animalSpeciesComboBox.Size = new System.Drawing.Size(416, 21);
 			this.animalSpeciesComboBox.TabIndex = 9;
 			this.animalSpeciesComboBox.Load += new System.EventHandler(this.speciesComboBox1_Load);
 			// 
@@ -144,7 +144,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.cancelButton;
-			this.ClientSize = new System.Drawing.Size(327, 291);
+			this.ClientSize = new System.Drawing.Size(440, 351);
 			this.Controls.Add(this.animalSpeciesComboBox);
 			this.Controls.Add(this.animalSpeciesLabel);
 			this.Controls.Add(this.cancelButton);
@@ -155,8 +155,12 @@
 			this.Controls.Add(this.animalWeightTextBox);
 			this.Controls.Add(this.animalOriginTextBox);
 			this.Controls.Add(this.animalNameTextBox);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(194, 300);
 			this.Name = "AnimalPage";
-			this.Text = "AnimalPage";
+			this.Text = "Create new animal";
+			this.Load += new System.EventHandler(this.AnimalPage_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

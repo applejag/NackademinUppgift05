@@ -31,5 +31,6 @@ namespace NackademinUppgift05
         public virtual DbSet<EaterType> EaterTypes { get; set; }
         public virtual DbSet<Environment> Environments { get; set; }
         public virtual DbSet<Species> Species { get; set; }
+        public virtual DbSet<AnimalParent> AnimalParents { get; set; }
     }
 }

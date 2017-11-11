@@ -13,11 +13,13 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="Zoophobia.EaterType" Width="1.5" PointX="8" PointY="3.125" />
         <EntityTypeShape EntityType="Zoophobia.Environment" Width="1.5" PointX="6" PointY="3.125" />
-        <EntityTypeShape EntityType="Zoophobia.Species" Width="2.125" PointX="4" PointY="0.5" />
+        <EntityTypeShape EntityType="Zoophobia.Species" Width="2.125" PointX="6" PointY="0.5" />
         <AssociationConnector Association="Zoophobia.EaterTypeSpecies" />
         <AssociationConnector Association="Zoophobia.SpeciesEnvironment" />
         <AssociationConnector Association="Zoophobia.AnimalSpecies" />
-        <AssociationConnector Association="Zoophobia.AnimalParents" />
+        <EntityTypeShape EntityType="Zoophobia.AnimalParent" Width="1.5" PointX="4" PointY="0.5" />
+        <AssociationConnector Association="Zoophobia.AnimalParenting" />
+        <AssociationConnector Association="Zoophobia.AnimalChildering" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
