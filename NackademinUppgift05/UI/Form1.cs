@@ -15,7 +15,7 @@ namespace NackademinUppgift05.UI
 		{
 			using (var zoo = new Zoophobia())
 			{
-				dataGridView1.DataSource = zoo.Environments.ToList();
+				dataGridView1.DataSource = zoo.Veterinarians.Select(v=>new {v.Id,v.Name}).ToList();
 			}
 		}
 	}
