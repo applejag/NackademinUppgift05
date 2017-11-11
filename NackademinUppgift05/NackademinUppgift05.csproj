@@ -63,16 +63,7 @@
     <Compile Include="Environment.cs">
       <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Species.cs">
       <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
@@ -111,6 +102,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Zoophobia.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Zoophobia1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zoophobia.edmx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -138,6 +134,7 @@
     </Compile>
     <EntityDeploy Include="Zoophobia.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Zoophobia1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Zoophobia.edmx.diagram">
       <DependentUpon>Zoophobia.edmx</DependentUpon>
@@ -147,16 +144,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-      <DependentUpon>Zoophobia.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.cs</LastGenOutput>
-      <DependentUpon>Zoophobia.edmx</DependentUpon>
-    </Content>
     <Content Include="Zoophobia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Zoophobia.Context.cs</LastGenOutput>

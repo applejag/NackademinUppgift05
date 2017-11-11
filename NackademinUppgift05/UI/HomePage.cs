@@ -20,13 +20,13 @@ namespace NackademinUppgift05.UI
 		{
 			animalsListBox.Items.Clear();
 
-			//using (var zoo = new Zoophobia())
-			//{
-			//	animalsListBox.Items.AddRange(zoo.Animals
-			//		.Include(a => a.Parents)
-			//		.Include(a => a.Species)
-			//		.ToArray());
-			//}
+			using (var zoo = new ZoophobiaContainer())
+			{
+				animalsListBox.Items.AddRange(zoo.Animals
+					.Include(a => a.Parents)
+					.Include(a => a.Species)
+					.ToArray());
+			}
 		}
 
 		private void animalCreateButton_Click(object sender, System.EventArgs e)

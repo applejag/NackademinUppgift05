@@ -48,7 +48,7 @@
 			// 
 			this.animalCreateButton.Location = new System.Drawing.Point(400, 112);
 			this.animalCreateButton.Name = "animalCreateButton";
-			this.animalCreateButton.Size = new System.Drawing.Size(75, 23);
+			this.animalCreateButton.Size = new System.Drawing.Size(103, 43);
 			this.animalCreateButton.TabIndex = 1;
 			this.animalCreateButton.Text = "New animal";
 			this.animalCreateButton.UseVisualStyleBackColor = true;

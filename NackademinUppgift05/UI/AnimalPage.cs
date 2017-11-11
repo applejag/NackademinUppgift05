@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,26 +13,32 @@ namespace NackademinUppgift05.UI
 {
 	public partial class AnimalPage : Form
 	{
-		//private Animal Animal { get; }
+		private Animal Animal { get; }
 
-		public AnimalPage(/*Animal animal = null*/)
+		public AnimalPage(Animal animal = null)
 		{
-			//this.Animal = animal ?? new Animal();
+			this.Animal = animal ?? new Animal();
 
 			InitializeComponent();
 		}
 
 		private void animalWeightTextBox_Validating(object sender, CancelEventArgs e)
 		{
-			if (float.TryParse(animalWeightTextBox.Text, out float weight))
+			if (double.TryParse(animalWeightTextBox.Text, NumberStyles.Number, CultureInfo.CurrentCulture, out double weight))
 			{
-				animalWeightTextBox.Text = weight.ToString();
-				//animal.Weight = weight;
+				animalWeightTextBox.Text = weight.ToString(CultureInfo.CurrentCulture);
+				Animal.Weight = weight;
 			}
 			else
 			{
-				//animalWeightTextBox.Text = animal.Weight.ToString();
+				animalWeightTextBox.Text = Animal.Weight.ToString(CultureInfo.CurrentCulture);
 			}
+		}
+
+		private void submitButton_Click(object sender, EventArgs e)
+		{
+			DialogResult = DialogResult.OK;
+			Close();
 		}
 	}
 }
