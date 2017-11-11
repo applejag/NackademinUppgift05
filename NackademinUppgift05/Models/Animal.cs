@@ -15,7 +15,7 @@ namespace NackademinUppgift05.Models
 
 		public virtual Species Species { get; set; }
 		public virtual ICollection<Visit> Visits { get; set; }
-		public virtual ICollection<Animal> Parents { get; set; }
-		public virtual ICollection<Animal> Children { get; set; }
+		public virtual ICollection<AnimalParent> Parents { get; set; }
+		public virtual ICollection<AnimalParent> Children { get; set; }
 	}
 }

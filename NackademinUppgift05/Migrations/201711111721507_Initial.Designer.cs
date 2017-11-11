@@ -13,7 +13,7 @@ namespace NackademinUppgift05.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201711111426490_Initial"; }
+            get { return "201711111721507_Initial"; }
         }
         
         string IMigrationMetadata.Source

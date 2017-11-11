@@ -53,14 +53,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Zoophobia.cs" />
-    <Compile Include="Migrations\201711111426490_Initial.cs" />
-    <Compile Include="Migrations\201711111426490_Initial.Designer.cs">
-      <DependentUpon>201711111426490_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201711111721507_Initial.cs" />
+    <Compile Include="Migrations\201711111721507_Initial.Designer.cs">
+      <DependentUpon>201711111721507_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\EaterType.cs" />
     <Compile Include="Models\Environment.cs" />
+    <Compile Include="Models\AnimalParent.cs" />
     <Compile Include="Models\Species.cs" />
     <Compile Include="Models\Veterinarian.cs" />
     <Compile Include="Models\Visit.cs" />
@@ -72,8 +73,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\201711111426490_Initial.resx">
-      <DependentUpon>201711111426490_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711111721507_Initial.resx">
+      <DependentUpon>201711111721507_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

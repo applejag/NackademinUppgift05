@@ -22,6 +22,19 @@ namespace NackademinUppgift05.Migrations
                 .Index(t => t.Species_Id);
             
             CreateTable(
+                "dbo.AnimalParents",
+                c => new
+                    {
+                        ChildId = c.Int(nullable: false),
+                        ParentId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.ChildId, t.ParentId })
+                .ForeignKey("dbo.Animals", t => t.ChildId, cascadeDelete: true)
+                .ForeignKey("dbo.Animals", t => t.ParentId, cascadeDelete: true)
+                .Index(t => t.ChildId)
+                .Index(t => t.ParentId);
+            
+            CreateTable(
                 "dbo.Species",
                 c => new
                     {
@@ -78,19 +91,6 @@ namespace NackademinUppgift05.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            CreateTable(
-                "dbo.AnimalParents",
-                c => new
-                    {
-                        ChildId = c.Int(nullable: false),
-                        ParentId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.ChildId, t.ParentId })
-                .ForeignKey("dbo.Animals", t => t.ChildId)
-                .ForeignKey("dbo.Animals", t => t.ParentId)
-                .Index(t => t.ChildId)
-                .Index(t => t.ParentId);
-            
         }
         
         public override void Down()
@@ -102,19 +102,19 @@ namespace NackademinUppgift05.Migrations
             DropForeignKey("dbo.Species", "EaterType_Id", "dbo.EaterTypes");
             DropForeignKey("dbo.AnimalParents", "ParentId", "dbo.Animals");
             DropForeignKey("dbo.AnimalParents", "ChildId", "dbo.Animals");
-            DropIndex("dbo.AnimalParents", new[] { "ParentId" });
-            DropIndex("dbo.AnimalParents", new[] { "ChildId" });
             DropIndex("dbo.Visits", new[] { "Veterinarian_Id" });
             DropIndex("dbo.Visits", new[] { "Animal_Id" });
             DropIndex("dbo.Species", new[] { "Environment_Id" });
             DropIndex("dbo.Species", new[] { "EaterType_Id" });
+            DropIndex("dbo.AnimalParents", new[] { "ParentId" });
+            DropIndex("dbo.AnimalParents", new[] { "ChildId" });
             DropIndex("dbo.Animals", new[] { "Species_Id" });
-            DropTable("dbo.AnimalParents");
             DropTable("dbo.Veterinarians");
             DropTable("dbo.Visits");
             DropTable("dbo.Environments");
             DropTable("dbo.EaterTypes");
             DropTable("dbo.Species");
+            DropTable("dbo.AnimalParents");
             DropTable("dbo.Animals");
         }
     }

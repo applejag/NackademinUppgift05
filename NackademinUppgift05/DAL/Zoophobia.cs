@@ -19,15 +19,18 @@ namespace NackademinUppgift05.DAL
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<Animal>()
-				.HasMany(a => a.Children)
-				.WithMany(a => a.Parents)
-				.Map(a =>
-				{
-					a.MapLeftKey("ChildId");
-					a.MapRightKey("ParentId");
-					a.ToTable("AnimalParents");
-				});
+			modelBuilder.Entity<AnimalParent>()
+				.HasKey(e => new {e.ChildId, e.ParentId});
+
+			modelBuilder.Entity<AnimalParent>() // child has many parents
+				.HasRequired(e => e.Child)
+				.WithMany(e => e.Parents)
+				.HasForeignKey(e => e.ChildId);
+
+			modelBuilder.Entity<AnimalParent>() // parent has many children
+				.HasRequired(e => e.Parent)
+				.WithMany(e => e.Children)
+				.HasForeignKey(e => e.ParentId);
 
 			base.OnModelCreating(modelBuilder);
 		}
