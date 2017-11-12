@@ -13,13 +13,20 @@ namespace NackademinUppgift05.UI
 {
 	public partial class SpeciesComboBox : UserControl
 	{
-		public AnimalPage Parent { get; set; }
-		public ZoophobiaContainer zoo => Parent?.zoo;
+		public ZoophobiaContainer zoo => (Parent as AnimalPage)?.zoo;
 
 		public Species SelectedSpecies
 		{
 			get => comboBox1.SelectedItem as Species;
-			set => comboBox1.SelectedIndex = value == null ? -1 : comboBox1.Items.IndexOf(value);
+			set
+			{
+				if (value != null)
+					comboBox1.SelectedIndex = comboBox1.Items
+						.Cast<Species>()
+						.Select(s => s.Id)
+						.ToList()
+						.IndexOf(value.Id);
+			}
 		}
 
 		public SpeciesComboBox()

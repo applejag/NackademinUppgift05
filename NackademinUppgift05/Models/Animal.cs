@@ -6,7 +6,7 @@ namespace NackademinUppgift05
 	{
 		public override string ToString()
 		{
-			return $"{Name}, from {Origin}";
+			return $"{Name} ({Species.Label}), from {Origin}";
 		}
 	}
 }

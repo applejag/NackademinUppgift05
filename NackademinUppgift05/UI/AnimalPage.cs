@@ -21,24 +21,18 @@ namespace NackademinUppgift05.UI
 
 		private readonly List<Animal> allAnimals;
 
-		public AnimalPage(Animal animal = null)
+		public AnimalPage(ZoophobiaContainer zoo, Animal animal = null)
 		{
 			isNew = animal == null;
 			Animal = animal ?? new Animal();
 
-			zoo = new ZoophobiaContainer();
+			this.zoo = zoo;
 			allAnimals = zoo.Animals
 				.Include(a => a.Species)
 				.Include(a => a.AnimalParents)
 				.ToList();
 
 			InitializeComponent();
-			animalSpeciesComboBox.Parent = this;
-		}
-
-		~AnimalPage()
-		{
-			zoo?.Dispose();
 		}
 		
 		private void AnimalPage_Load(object sender, EventArgs e)
@@ -84,10 +78,10 @@ namespace NackademinUppgift05.UI
 				return;
 			if (string.IsNullOrWhiteSpace(Animal.Origin))
 				return;
-			Animal.Species = animalSpeciesComboBox.SelectedSpecies;
-			if (Animal.Species == null)
+			Species species = animalSpeciesComboBox.SelectedSpecies;
+			if (species == null)
 				return;
-			Animal.SpeciesId = Animal.Species.Id;
+			Animal.Species = species;
 
 			// Save changes
 			if (isNew)
