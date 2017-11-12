@@ -29,15 +29,42 @@ namespace NackademinUppgift05.UI
 			LoadAnimals();
 		}
 
+		private bool SearchQuery(Animal animal)
+		{
+			string search = animalSearchTextBox.Text.Trim().ToLower();
+
+			return
+				// Search name
+				animal.Name.ToLower().Contains(search)
+				// Search environment
+				|| animal.Species.Environment.Label.ToLower().Contains(search)
+				// Search eater type
+				|| animal.Species.EaterType.Label.ToLower().Contains(search)
+				// Search species
+				|| animal.Species.Label.ToLower().Contains(search)
+			;
+		}
+
 		private void LoadAnimals()
 		{
 			animalsListBox.Items.Clear();
-			
-			animalsListBox.Items.AddRange(zoo.Animals
-				.Include(a => a.Species)
-				.Include(a => a.AnimalParents)
-				.ToArray());
-			
+
+			Animal[] results = zoo.Animals
+				.Include("Species")
+				.Include("Species.Environment")
+				.Include("Species.EaterType")
+				.Include("AnimalParents")
+				.Where(SearchQuery)
+				.ToArray();
+
+			animalsListBox.Items.AddRange(results);
+
+			bool any = animalsListBox.Items.Count > 0;
+			animalsListBox.Enabled = any;
+			if (!any)
+			{
+				animalsListBox.Items.Add("<No animals matches your query>");
+			}
 		}
 
 		private void animalCreateButton_Click(object sender, System.EventArgs e)
@@ -62,6 +89,11 @@ namespace NackademinUppgift05.UI
 
 			zoo.Animals.Remove(animal);
 			zoo.SaveChanges();
+			LoadAnimals();
+		}
+
+		private void animalSearchButton_Click(object sender, System.EventArgs e)
+		{
 			LoadAnimals();
 		}
 	}
