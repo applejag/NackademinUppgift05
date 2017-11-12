@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,14 @@ namespace NackademinUppgift05.UI
 
 			using (var zoo = new ZoophobiaContainer())
 			{
-				speciesEnvironmentComboBox.Items.AddRange(zoo.Environments.ToArray());
-				speciesEaterTypeComboBox.Items.AddRange(zoo.EaterTypes.ToArray());
-				speciesListBox.Items.AddRange(zoo.Species.ToArray());
+				speciesEnvironmentComboBox.Items.AddRange(zoo.Environments
+					.ToArray());
+				speciesEaterTypeComboBox.Items.AddRange(zoo.EaterTypes
+					.ToArray());
+				speciesListBox.Items.AddRange(zoo.Species
+					.Include(s => s.EaterType)
+					.Include(s => s.Environment)
+					.ToArray());
 			}
 		}
 
@@ -70,7 +76,9 @@ namespace NackademinUppgift05.UI
 				var species = new Species
 				{
 					EaterTypeId = eaterType.Id,
+					EaterType = eaterType,
 					EnvironmentId = environment.Id,
+					Environment = environment,
 					Label = speciesLabelTextBox.Text.Trim()
 				};
 

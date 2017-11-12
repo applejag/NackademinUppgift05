@@ -62,6 +62,7 @@
 			this.Controls.Add(this.animalCreateButton);
 			this.Controls.Add(this.animalsListBox);
 			this.Name = "HomePage";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.ResumeLayout(false);

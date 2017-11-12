@@ -155,6 +155,7 @@
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(214, 259);
 			this.Name = "SpeciesPage";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "SpeciesPage";
 			this.Load += new System.EventHandler(this.SpeciesPage_Load);
 			this.ResumeLayout(false);

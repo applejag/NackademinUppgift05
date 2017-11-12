@@ -67,6 +67,8 @@
       <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Animal.cs" />
+    <Compile Include="Models\AnimalParent.cs" />
     <Compile Include="Models\EaterType.cs" />
     <Compile Include="Models\Environment.cs" />
     <Compile Include="Models\Species.cs" />
@@ -116,6 +118,11 @@
       <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
     <Compile Include="Zoophobia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zoophobia.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Zoophobia1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Zoophobia.edmx</DependentUpon>

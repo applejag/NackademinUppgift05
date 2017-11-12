@@ -30,8 +30,9 @@ namespace NackademinUppgift05.UI
 			using (var zoo = new ZoophobiaContainer())
 			{
 				animalsListBox.Items.AddRange(zoo.Animals
-					.Include(a => a.Parents)
+					.Include(a => a.AnimalParents)
 					.Include(a => a.Species)
+					.Include(a => a.AnimalParents)
 					.ToArray());
 			}
 		}

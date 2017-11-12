@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace NackademinUppgift05.UI
 		public Species SelectedSpecies
 		{
 			get => comboBox1.SelectedItem as Species;
-			set => comboBox1.SelectedIndex = comboBox1.Items.IndexOf(value);
+			set => comboBox1.SelectedIndex = value == null ? -1 : comboBox1.Items.IndexOf(value);
 		}
 
 		public SpeciesComboBox()
@@ -30,7 +31,10 @@ namespace NackademinUppgift05.UI
 			try
 			{
 				using (var zoo = new ZoophobiaContainer())
-					comboBox1.Items.AddRange(zoo.Species.ToArray());
+					comboBox1.Items.AddRange(zoo.Species
+						.Include(s => s.EaterType)
+						.Include(s => s.Environment)
+						.ToArray());
 			}
 			catch
 			{}
