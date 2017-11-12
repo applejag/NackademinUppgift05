@@ -13,8 +13,10 @@ namespace NackademinUppgift05.UI
 {
 	public partial class SpeciesPage : Form
 	{
-		public SpeciesPage()
+		private readonly ZoophobiaContainer zoo;
+		public SpeciesPage(ZoophobiaContainer zoo)
 		{
+			this.zoo = zoo;
 			InitializeComponent();
 		}
 
@@ -23,18 +25,15 @@ namespace NackademinUppgift05.UI
 			speciesEnvironmentComboBox.Items.Clear();
 			speciesEaterTypeComboBox.Items.Clear();
 			speciesListBox.Items.Clear();
-
-			using (var zoo = new ZoophobiaContainer())
-			{
-				speciesEnvironmentComboBox.Items.AddRange(zoo.Environments
-					.ToArray());
-				speciesEaterTypeComboBox.Items.AddRange(zoo.EaterTypes
-					.ToArray());
-				speciesListBox.Items.AddRange(zoo.Species
-					.Include(s => s.EaterType)
-					.Include(s => s.Environment)
-					.ToArray());
-			}
+			
+			speciesEnvironmentComboBox.Items.AddRange(zoo.Environments
+				.ToArray());
+			speciesEaterTypeComboBox.Items.AddRange(zoo.EaterTypes
+				.ToArray());
+			speciesListBox.Items.AddRange(zoo.Species
+				.Include(s => s.EaterType)
+				.Include(s => s.Environment)
+				.ToArray());
 		}
 
 		private void SpeciesPage_Load(object sender, EventArgs e)
@@ -51,13 +50,10 @@ namespace NackademinUppgift05.UI
 		{
 			if (!(speciesListBox.SelectedItem is Species species))
 				return;
-
-			using (var zoo = new ZoophobiaContainer())
-			{
-				speciesListBox.Items.Remove(species);
-				zoo.Species.Remove(species);
-				zoo.SaveChanges();
-			}
+			
+			speciesListBox.Items.Remove(species);
+			zoo.Species.Remove(species);
+			zoo.SaveChanges();
 		}
 
 		private void speciesCreateButton_Click(object sender, EventArgs e)
@@ -70,22 +66,19 @@ namespace NackademinUppgift05.UI
 
 			if (string.IsNullOrWhiteSpace(speciesLabelTextBox.Text))
 				return;
-
-			using (var zoo = new ZoophobiaContainer())
+			
+			var species = new Species
 			{
-				var species = new Species
-				{
-					EaterTypeId = eaterType.Id,
-					EaterType = eaterType,
-					EnvironmentId = environment.Id,
-					Environment = environment,
-					Label = speciesLabelTextBox.Text.Trim()
-				};
+				EaterTypeId = eaterType.Id,
+				EaterType = eaterType,
+				EnvironmentId = environment.Id,
+				Environment = environment,
+				Label = speciesLabelTextBox.Text.Trim()
+			};
 
-				zoo.Species.Add(species);
-				zoo.SaveChanges();
-				speciesListBox.Items.Add(species);
-			}
+			zoo.Species.Add(species);
+			zoo.SaveChanges();
+			speciesListBox.Items.Add(species);
 		}
 	}
 }

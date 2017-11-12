@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="a59fb5d3dcf94c8ab61375194e6fff4d" Name="Diagram1" ZoomLevel="97" ShowGrid="true" DisplayType="true" >
         <EntityTypeShape EntityType="Zoophobia.Animal" Width="2.375" PointX="1.125" PointY="0.5" />
-        <EntityTypeShape EntityType="Zoophobia.Veterinarian" Width="1.5" PointX="4" PointY="3.125" />
+        <EntityTypeShape EntityType="Zoophobia.Veterinarian" Width="1.5" PointX="4" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Zoophobia.Visit" Width="2.375" PointX="1.125" PointY="3.75" />
         <AssociationConnector Association="Zoophobia.AnimalVisit" />
         <AssociationConnector Association="Zoophobia.VeterinarianVisit" ManuallyRouted="false" >
@@ -17,7 +17,7 @@
         <AssociationConnector Association="Zoophobia.EaterTypeSpecies" />
         <AssociationConnector Association="Zoophobia.SpeciesEnvironment" />
         <AssociationConnector Association="Zoophobia.AnimalSpecies" />
-        <EntityTypeShape EntityType="Zoophobia.AnimalParent" Width="1.5" PointX="4" PointY="0.5" />
+        <EntityTypeShape EntityType="Zoophobia.AnimalParent" PointX="4" PointY="0.5" Width="1.5" />
         <AssociationConnector Association="Zoophobia.AnimalParenting" />
         <AssociationConnector Association="Zoophobia.AnimalChildering" />
       </Diagram>

@@ -66,6 +66,7 @@
 			this.MaximumSize = new System.Drawing.Size(2000000000, 21);
 			this.Name = "SpeciesComboBox";
 			this.Size = new System.Drawing.Size(393, 21);
+			this.Load += new System.EventHandler(this.SpeciesComboBox_Load);
 			this.ResumeLayout(false);
 
 		}

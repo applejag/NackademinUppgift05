@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/11/2017 23:33:10
+-- Date Created: 11/12/2017 10:59:04
 -- Generated from EDMX file: D:\Projekt\VS\NackademinUppgift05\NackademinUppgift05\Zoophobia.edmx
 -- --------------------------------------------------
 
@@ -32,8 +32,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_AnimalSpecies]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Animals] DROP CONSTRAINT [FK_AnimalSpecies];
 GO
-IF OBJECT_ID(N'[dbo].[FK_AnimalParents]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Animals] DROP CONSTRAINT [FK_AnimalParents];
+IF OBJECT_ID(N'[dbo].[FK_AnimalParenting]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AnimalParents] DROP CONSTRAINT [FK_AnimalParenting];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AnimalChildering]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AnimalParents] DROP CONSTRAINT [FK_AnimalChildering];
 GO
 
 -- --------------------------------------------------
@@ -57,6 +60,9 @@ IF OBJECT_ID(N'[dbo].[Environments]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Species]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Species];
+GO
+IF OBJECT_ID(N'[dbo].[AnimalParents]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AnimalParents];
 GO
 
 -- --------------------------------------------------

@@ -13,6 +13,9 @@ namespace NackademinUppgift05.UI
 {
 	public partial class SpeciesComboBox : UserControl
 	{
+		public AnimalPage Parent { get; set; }
+		public ZoophobiaContainer zoo => Parent?.zoo;
+
 		public Species SelectedSpecies
 		{
 			get => comboBox1.SelectedItem as Species;
@@ -22,29 +25,28 @@ namespace NackademinUppgift05.UI
 		public SpeciesComboBox()
 		{
 			InitializeComponent();
-			LoadSpecies();
 		}
 
 		private void LoadSpecies()
 		{
 			comboBox1.Items.Clear();
-			try
-			{
-				using (var zoo = new ZoophobiaContainer())
-					comboBox1.Items.AddRange(zoo.Species
-						.Include(s => s.EaterType)
-						.Include(s => s.Environment)
-						.ToArray());
-			}
-			catch
-			{}
+			if (zoo != null)
+				comboBox1.Items.AddRange(zoo.Species
+					.Include(s => s.EaterType)
+					.Include(s => s.Environment)
+					.ToArray());
 
 			comboBox1.Enabled = comboBox1.Items.Count > 0;
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			new SpeciesPage().ShowDialog();
+			new SpeciesPage(zoo).ShowDialog();
+			LoadSpecies();
+		}
+
+		private void SpeciesComboBox_Load(object sender, EventArgs e)
+		{
 			LoadSpecies();
 		}
 	}

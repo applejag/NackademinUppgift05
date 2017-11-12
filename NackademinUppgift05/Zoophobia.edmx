@@ -220,12 +220,12 @@
           </AssociationSet>
           <EntitySet Name="AnimalParents" EntityType="Zoophobia.AnimalParent" />
           <AssociationSet Name="AnimalParenting" Association="Zoophobia.AnimalParenting">
-            <End Role="Animal" EntitySet="Animals" />
-            <End Role="AnimalParent" EntitySet="AnimalParents" />
+            <End EntitySet="Animals" Role="Animal" />
+            <End EntitySet="AnimalParents" Role="AnimalParent" />
           </AssociationSet>
           <AssociationSet Name="AnimalChildering" Association="Zoophobia.AnimalChildering">
-            <End Role="Animal" EntitySet="Animals" />
-            <End Role="AnimalParent" EntitySet="AnimalParents" />
+            <End EntitySet="Animals" Role="Animal" />
+            <End EntitySet="AnimalParents" Role="AnimalParent" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Animal">
@@ -240,7 +240,6 @@
           <NavigationProperty Name="Species" Relationship="Zoophobia.AnimalSpecies" FromRole="Animal" ToRole="Species" />
           <Property Name="SpeciesId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AnimalParents" Relationship="Zoophobia.AnimalParenting" FromRole="Animal" ToRole="AnimalParent" />
-          <NavigationProperty Name="AnimalChildren" Relationship="Zoophobia.AnimalChildering" FromRole="Animal" ToRole="AnimalParent" />
         </EntityType>
         <EntityType Name="Veterinarian">
           <Key>
@@ -359,13 +358,15 @@
             <PropertyRef Name="ParentId" />
           </Key>
           <NavigationProperty Name="Child" Relationship="Zoophobia.AnimalParenting" FromRole="AnimalParent" ToRole="Animal" />
-          <Property Name="ChildId" Type="Int32" Nullable="false" />
+          <Property Name="ChildId" Nullable="false" Type="Int32" />
           <NavigationProperty Name="Parent" Relationship="Zoophobia.AnimalChildering" FromRole="AnimalParent" ToRole="Animal" />
-          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="ParentId" Nullable="false" Type="Int32" />
         </EntityType>
         <Association Name="AnimalParenting">
-          <End Type="Zoophobia.Animal" Role="Animal" Multiplicity="1" />
-          <End Type="Zoophobia.AnimalParent" Role="AnimalParent" Multiplicity="*" />
+          <End Type="Zoophobia.Animal" Multiplicity="1" Role="Animal">
+          </End>
+          <End Type="Zoophobia.AnimalParent" Multiplicity="*" Role="AnimalParent">
+          </End>
           <ReferentialConstraint>
             <Principal Role="Animal">
               <PropertyRef Name="Id" />
@@ -376,8 +377,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="AnimalChildering">
-          <End Type="Zoophobia.Animal" Role="Animal" Multiplicity="1" />
-          <End Type="Zoophobia.AnimalParent" Role="AnimalParent" Multiplicity="*" />
+          <End Type="Zoophobia.Animal" Multiplicity="1" Role="Animal">
+          </End>
+          <End Type="Zoophobia.AnimalParent" Multiplicity="*" Role="AnimalParent">
+          </End>
           <ReferentialConstraint>
             <Principal Role="Animal">
               <PropertyRef Name="Id" />

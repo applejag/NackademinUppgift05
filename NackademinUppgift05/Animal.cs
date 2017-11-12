@@ -20,7 +20,6 @@ namespace NackademinUppgift05
             this.Origin = "";
             this.Visits = new HashSet<Visit>();
             this.AnimalParents = new HashSet<AnimalParent>();
-            this.AnimalChildren = new HashSet<AnimalParent>();
         }
     
         public int Id { get; set; }
@@ -34,7 +33,5 @@ namespace NackademinUppgift05
         public virtual Species Species { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AnimalParent> AnimalParents { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AnimalParent> AnimalChildren { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -13,17 +14,31 @@ namespace NackademinUppgift05.UI
 {
 	public partial class AnimalPage : Form
 	{
+		public readonly ZoophobiaContainer zoo;
+
 		private Animal Animal { get; }
 		private readonly bool isNew;
 
-		private List<Animal> allAnimals;
+		private readonly List<Animal> allAnimals;
 
 		public AnimalPage(Animal animal = null)
 		{
 			isNew = animal == null;
 			Animal = animal ?? new Animal();
 
+			zoo = new ZoophobiaContainer();
+			allAnimals = zoo.Animals
+				.Include(a => a.Species)
+				.Include(a => a.AnimalParents)
+				.ToList();
+
 			InitializeComponent();
+			animalSpeciesComboBox.Parent = this;
+		}
+
+		~AnimalPage()
+		{
+			zoo?.Dispose();
 		}
 		
 		private void AnimalPage_Load(object sender, EventArgs e)
@@ -35,9 +50,6 @@ namespace NackademinUppgift05.UI
 			animalOriginTextBox.Text = Animal.Origin;
 			animalWeightTextBox.Text = Animal.Weight.ToString(CultureInfo.CurrentCulture);
 			animalSpeciesComboBox.SelectedSpecies = Animal.Species;
-
-			using (var zoo = new ZoophobiaContainer())
-				allAnimals = zoo.Animals.ToList();
 
 			UpdateParentsList();
 		}
@@ -78,15 +90,12 @@ namespace NackademinUppgift05.UI
 			Animal.SpeciesId = Animal.Species.Id;
 
 			// Save changes
-			using (var zoo = new ZoophobiaContainer())
+			if (isNew)
 			{
-				if (isNew)
-				{
-					zoo.Animals.Add(Animal);
-				}
-
-				zoo.SaveChanges();
+				zoo.Animals.Add(Animal);
 			}
+
+			zoo.SaveChanges();
 			
 			DialogResult = DialogResult.OK;
 			Close();
