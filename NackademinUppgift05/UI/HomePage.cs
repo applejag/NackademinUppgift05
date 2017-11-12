@@ -24,16 +24,29 @@ namespace NackademinUppgift05.UI
 		{
 			Configuration.MySeedBecauseModelFirstMessesMeUp(zoo);
 			zoo.SaveChanges();
-			
+
+			EaterType[] eaterTypes = zoo.EaterTypes.ToArray();
+			FillCheckBoxList(animalSearchEaterTypesCheckBoxList, eaterTypes);
+			Environment[] environments = zoo.Environments.ToArray();
+			FillCheckBoxList(animalSearchEnvironmentCheckBoxList, environments);
 
 			LoadAnimals();
+		}
+
+		private static void FillCheckBoxList(CheckedListBox checkedListBox, object[] items)
+		{
+			checkedListBox.Items.AddRange(items);
+			for (int i = checkedListBox.Items.Count - 1; i >= 0; i--)
+			{
+				checkedListBox.SetItemChecked(i, true);
+			}
 		}
 
 		private bool SearchQuery(Animal animal)
 		{
 			string search = animalSearchTextBox.Text.Trim().ToLower();
 
-			return
+			bool stringSearch =
 				// Search name
 				animal.Name.ToLower().Contains(search)
 				// Search environment
@@ -41,15 +54,34 @@ namespace NackademinUppgift05.UI
 				// Search eater type
 				|| animal.Species.EaterType.Label.ToLower().Contains(search)
 				// Search species
-				|| animal.Species.Label.ToLower().Contains(search)
-			;
+				|| animal.Species.Label.ToLower().Contains(search);
+
+			var eaterTypes = animalSearchEaterTypesCheckBoxList.Items
+				.Cast<EaterType>()
+				.Where((e, i) => animalSearchEaterTypesCheckBoxList.GetItemChecked(i))
+				.Select(e => e.Id);
+
+			bool eaterTypesSearch =
+				eaterTypes.Contains(animal.Species.EaterTypeId);
+
+			var environments = animalSearchEnvironmentCheckBoxList.Items
+				.Cast<Environment>()
+				.Where((e, i) => animalSearchEnvironmentCheckBoxList.GetItemChecked(i))
+				.Select(e => e.Id);
+
+			bool environmentSearch =
+				environments.Contains(animal.Species.EnvironmentId);
+
+			return stringSearch
+				&& eaterTypesSearch
+				&& environmentSearch;
 		}
 
 		private void LoadAnimals()
 		{
 			animalsListBox.Items.Clear();
 
-			Animal[] results = zoo.Animals
+			Animal[] animalResults = zoo.Animals
 				.Include("Species")
 				.Include("Species.Environment")
 				.Include("Species.EaterType")
@@ -57,7 +89,7 @@ namespace NackademinUppgift05.UI
 				.Where(SearchQuery)
 				.ToArray();
 
-			animalsListBox.Items.AddRange(results);
+			animalsListBox.Items.AddRange(animalResults);
 
 			bool any = animalsListBox.Items.Count > 0;
 			animalsListBox.Enabled = any;

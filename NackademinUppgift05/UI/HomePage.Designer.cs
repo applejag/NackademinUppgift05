@@ -35,6 +35,8 @@
 			this.animalSearchBoxLabel = new System.Windows.Forms.Label();
 			this.animalSearchButton = new System.Windows.Forms.Button();
 			this.animalListLabel = new System.Windows.Forms.Label();
+			this.animalSearchEaterTypesCheckBoxList = new System.Windows.Forms.CheckedListBox();
+			this.animalSearchEnvironmentCheckBoxList = new System.Windows.Forms.CheckedListBox();
 			this.SuspendLayout();
 			// 
 			// animalsListBox
@@ -44,16 +46,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.animalsListBox.FormattingEnabled = true;
 			this.animalsListBox.IntegralHeight = false;
-			this.animalsListBox.Location = new System.Drawing.Point(12, 68);
+			this.animalsListBox.Location = new System.Drawing.Point(12, 164);
 			this.animalsListBox.Name = "animalsListBox";
-			this.animalsListBox.Size = new System.Drawing.Size(375, 269);
+			this.animalsListBox.Size = new System.Drawing.Size(547, 231);
 			this.animalsListBox.TabIndex = 0;
 			this.animalsListBox.DoubleClick += new System.EventHandler(this.animalsListBox_DoubleClick);
 			// 
 			// animalCreateButton
 			// 
 			this.animalCreateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.animalCreateButton.Location = new System.Drawing.Point(393, 68);
+			this.animalCreateButton.Location = new System.Drawing.Point(565, 164);
 			this.animalCreateButton.Name = "animalCreateButton";
 			this.animalCreateButton.Size = new System.Drawing.Size(103, 43);
 			this.animalCreateButton.TabIndex = 1;
@@ -64,7 +66,7 @@
 			// animalDeleteButton
 			// 
 			this.animalDeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.animalDeleteButton.Location = new System.Drawing.Point(393, 117);
+			this.animalDeleteButton.Location = new System.Drawing.Point(565, 213);
 			this.animalDeleteButton.Name = "animalDeleteButton";
 			this.animalDeleteButton.Size = new System.Drawing.Size(103, 43);
 			this.animalDeleteButton.TabIndex = 2;
@@ -78,7 +80,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.animalSearchTextBox.Location = new System.Drawing.Point(12, 29);
 			this.animalSearchTextBox.Name = "animalSearchTextBox";
-			this.animalSearchTextBox.Size = new System.Drawing.Size(375, 20);
+			this.animalSearchTextBox.Size = new System.Drawing.Size(547, 20);
 			this.animalSearchTextBox.TabIndex = 3;
 			// 
 			// animalSearchBoxLabel
@@ -93,9 +95,9 @@
 			// animalSearchButton
 			// 
 			this.animalSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.animalSearchButton.Location = new System.Drawing.Point(393, 27);
+			this.animalSearchButton.Location = new System.Drawing.Point(565, 29);
 			this.animalSearchButton.Name = "animalSearchButton";
-			this.animalSearchButton.Size = new System.Drawing.Size(103, 23);
+			this.animalSearchButton.Size = new System.Drawing.Size(103, 117);
 			this.animalSearchButton.TabIndex = 5;
 			this.animalSearchButton.Text = "Search";
 			this.animalSearchButton.UseVisualStyleBackColor = true;
@@ -104,18 +106,40 @@
 			// animalListLabel
 			// 
 			this.animalListLabel.AutoSize = true;
-			this.animalListLabel.Location = new System.Drawing.Point(13, 52);
+			this.animalListLabel.Location = new System.Drawing.Point(13, 148);
 			this.animalListLabel.Name = "animalListLabel";
 			this.animalListLabel.Size = new System.Drawing.Size(43, 13);
 			this.animalListLabel.TabIndex = 6;
 			this.animalListLabel.Text = "Animals";
+			// 
+			// animalSearchEaterTypesCheckBoxList
+			// 
+			this.animalSearchEaterTypesCheckBoxList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.animalSearchEaterTypesCheckBoxList.FormattingEnabled = true;
+			this.animalSearchEaterTypesCheckBoxList.Location = new System.Drawing.Point(12, 56);
+			this.animalSearchEaterTypesCheckBoxList.Name = "animalSearchEaterTypesCheckBoxList";
+			this.animalSearchEaterTypesCheckBoxList.Size = new System.Drawing.Size(547, 34);
+			this.animalSearchEaterTypesCheckBoxList.TabIndex = 7;
+			// 
+			// animalSearchEnvironmentCheckBoxList
+			// 
+			this.animalSearchEnvironmentCheckBoxList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.animalSearchEnvironmentCheckBoxList.FormattingEnabled = true;
+			this.animalSearchEnvironmentCheckBoxList.Location = new System.Drawing.Point(12, 96);
+			this.animalSearchEnvironmentCheckBoxList.Name = "animalSearchEnvironmentCheckBoxList";
+			this.animalSearchEnvironmentCheckBoxList.Size = new System.Drawing.Size(547, 49);
+			this.animalSearchEnvironmentCheckBoxList.TabIndex = 8;
 			// 
 			// HomePage
 			// 
 			this.AcceptButton = this.animalSearchButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(508, 349);
+			this.ClientSize = new System.Drawing.Size(680, 407);
+			this.Controls.Add(this.animalSearchEnvironmentCheckBoxList);
+			this.Controls.Add(this.animalSearchEaterTypesCheckBoxList);
 			this.Controls.Add(this.animalListLabel);
 			this.Controls.Add(this.animalSearchButton);
 			this.Controls.Add(this.animalSearchBoxLabel);
@@ -123,6 +147,7 @@
 			this.Controls.Add(this.animalDeleteButton);
 			this.Controls.Add(this.animalCreateButton);
 			this.Controls.Add(this.animalsListBox);
+			this.MinimumSize = new System.Drawing.Size(330, 306);
 			this.Name = "HomePage";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Zoophobia";
@@ -141,6 +166,8 @@
 		private System.Windows.Forms.Label animalSearchBoxLabel;
 		private System.Windows.Forms.Button animalSearchButton;
 		private System.Windows.Forms.Label animalListLabel;
+		private System.Windows.Forms.CheckedListBox animalSearchEaterTypesCheckBoxList;
+		private System.Windows.Forms.CheckedListBox animalSearchEnvironmentCheckBoxList;
 	}
 }
 
