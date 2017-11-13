@@ -91,6 +91,9 @@ namespace NackademinUppgift05.UI
 				.Where(SearchQuery)
 				.ToArray();
 
+			foreach (Animal anim in animalResults)
+				zoo.Entry(anim).Reload();
+
 			animalsListBox.Items.AddRange(animalResults);
 
 			bool any = animalsListBox.Items.Count > 0;
