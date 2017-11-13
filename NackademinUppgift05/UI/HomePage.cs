@@ -86,6 +86,8 @@ namespace NackademinUppgift05.UI
 				.Include("Species.Environment")
 				.Include("Species.EaterType")
 				.Include("AnimalParents")
+				.Include("Visits")
+				.Include("Visits.Veterinarian")
 				.Where(SearchQuery)
 				.ToArray();
 
@@ -126,6 +128,22 @@ namespace NackademinUppgift05.UI
 
 		private void animalSearchButton_Click(object sender, System.EventArgs e)
 		{
+			LoadAnimals();
+		}
+
+		private void animalsListBox_SelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			animalDeleteButton.Enabled =
+				animalEditButton.Enabled =
+					animalsListBox.SelectedItem is Animal;
+		}
+
+		private void animalEditButton_Click(object sender, System.EventArgs e)
+		{
+			if (!(animalsListBox.SelectedItem is Animal animal))
+				return;
+
+			new AnimalPage(zoo, animal).ShowDialog();
 			LoadAnimals();
 		}
 	}

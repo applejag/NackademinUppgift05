@@ -16,8 +16,8 @@ namespace NackademinUppgift05.UI
 	{
 		public readonly ZoophobiaContainer zoo;
 
-		private Animal Animal { get; }
-		private readonly bool isNew;
+		public Animal Animal { get; }
+		public readonly bool isNew;
 
 		private readonly List<Animal> allAnimals;
 

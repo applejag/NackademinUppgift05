@@ -38,6 +38,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -52,6 +54,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animal.cs">
@@ -71,7 +74,9 @@
     <Compile Include="Models\AnimalParent.cs" />
     <Compile Include="Models\EaterType.cs" />
     <Compile Include="Models\Environment.cs" />
+    <Compile Include="Models\partial Visit.cs" />
     <Compile Include="Models\Species.cs" />
+    <Compile Include="Models\Veterinarian.cs" />
     <Compile Include="Species.cs">
       <DependentUpon>Zoophobia.tt</DependentUpon>
     </Compile>
@@ -80,6 +85,12 @@
     </Compile>
     <Compile Include="UI\AnimalPage.Designer.cs">
       <DependentUpon>AnimalPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BookVisitPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BookVisitPage.Designer.cs">
+      <DependentUpon>BookVisitPage.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\HomePage.cs">
       <SubType>Form</SubType>
@@ -100,6 +111,12 @@
     </Compile>
     <Compile Include="UI\SpeciesPage.Designer.cs">
       <DependentUpon>SpeciesPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VetenarianVisits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\VetenarianVisits.Designer.cs">
+      <DependentUpon>VetenarianVisits.cs</DependentUpon>
     </Compile>
     <Compile Include="Veterinarian.cs">
       <DependentUpon>Zoophobia.tt</DependentUpon>
@@ -139,6 +156,9 @@
     <EmbeddedResource Include="UI\AnimalPage.resx">
       <DependentUpon>AnimalPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\BookVisitPage.resx">
+      <DependentUpon>BookVisitPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SpeciesPage.resx">
       <DependentUpon>SpeciesPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\VetenarianVisits.resx">
+      <DependentUpon>VetenarianVisits.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

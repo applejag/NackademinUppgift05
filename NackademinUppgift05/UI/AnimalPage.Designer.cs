@@ -37,11 +37,12 @@
 			this.submitButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
 			this.animalSpeciesLabel = new System.Windows.Forms.Label();
-			this.animalSpeciesComboBox = new NackademinUppgift05.UI.SpeciesComboBox();
 			this.animalParentsListBox = new System.Windows.Forms.ListBox();
 			this.animalParentsRemoveButton = new System.Windows.Forms.Button();
 			this.animalParentsComboBox = new System.Windows.Forms.ComboBox();
 			this.animalParentsLabel = new System.Windows.Forms.Label();
+			this.vetenarianVisits1 = new NackademinUppgift05.UI.VetenarianVisits();
+			this.animalSpeciesComboBox = new NackademinUppgift05.UI.SpeciesComboBox();
 			this.SuspendLayout();
 			// 
 			// animalNameTextBox
@@ -50,7 +51,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.animalNameTextBox.Location = new System.Drawing.Point(12, 25);
 			this.animalNameTextBox.Name = "animalNameTextBox";
-			this.animalNameTextBox.Size = new System.Drawing.Size(423, 20);
+			this.animalNameTextBox.Size = new System.Drawing.Size(343, 20);
 			this.animalNameTextBox.TabIndex = 0;
 			this.animalNameTextBox.TextChanged += new System.EventHandler(this.animalNameTextBox_TextChanged);
 			// 
@@ -60,7 +61,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.animalOriginTextBox.Location = new System.Drawing.Point(12, 64);
 			this.animalOriginTextBox.Name = "animalOriginTextBox";
-			this.animalOriginTextBox.Size = new System.Drawing.Size(423, 20);
+			this.animalOriginTextBox.Size = new System.Drawing.Size(343, 20);
 			this.animalOriginTextBox.TabIndex = 1;
 			this.animalOriginTextBox.TextChanged += new System.EventHandler(this.animalOriginTextBox_TextChanged);
 			// 
@@ -70,7 +71,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.animalWeightTextBox.Location = new System.Drawing.Point(12, 103);
 			this.animalWeightTextBox.Name = "animalWeightTextBox";
-			this.animalWeightTextBox.Size = new System.Drawing.Size(423, 20);
+			this.animalWeightTextBox.Size = new System.Drawing.Size(343, 20);
 			this.animalWeightTextBox.TabIndex = 2;
 			this.animalWeightTextBox.Text = "0";
 			this.animalWeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.animalWeightTextBox_Validating);
@@ -105,7 +106,7 @@
 			// submitButton
 			// 
 			this.submitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.submitButton.Location = new System.Drawing.Point(360, 328);
+			this.submitButton.Location = new System.Drawing.Point(281, 328);
 			this.submitButton.Name = "submitButton";
 			this.submitButton.Size = new System.Drawing.Size(75, 23);
 			this.submitButton.TabIndex = 6;
@@ -117,7 +118,7 @@
 			// 
 			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelButton.Location = new System.Drawing.Point(279, 328);
+			this.cancelButton.Location = new System.Drawing.Point(200, 328);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(75, 23);
 			this.cancelButton.TabIndex = 7;
@@ -133,17 +134,6 @@
 			this.animalSpeciesLabel.TabIndex = 8;
 			this.animalSpeciesLabel.Text = "Species";
 			// 
-			// animalSpeciesComboBox
-			// 
-			this.animalSpeciesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.animalSpeciesComboBox.Location = new System.Drawing.Point(12, 143);
-			this.animalSpeciesComboBox.MaximumSize = new System.Drawing.Size(2000000000, 21);
-			this.animalSpeciesComboBox.Name = "animalSpeciesComboBox";
-			this.animalSpeciesComboBox.SelectedSpecies = null;
-			this.animalSpeciesComboBox.Size = new System.Drawing.Size(423, 21);
-			this.animalSpeciesComboBox.TabIndex = 9;
-			// 
 			// animalParentsListBox
 			// 
 			this.animalParentsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -153,7 +143,7 @@
 			this.animalParentsListBox.IntegralHeight = false;
 			this.animalParentsListBox.Location = new System.Drawing.Point(12, 232);
 			this.animalParentsListBox.Name = "animalParentsListBox";
-			this.animalParentsListBox.Size = new System.Drawing.Size(423, 90);
+			this.animalParentsListBox.Size = new System.Drawing.Size(343, 90);
 			this.animalParentsListBox.TabIndex = 10;
 			this.animalParentsListBox.SelectedIndexChanged += new System.EventHandler(this.animalParentsListBox_SelectedIndexChanged);
 			// 
@@ -161,7 +151,7 @@
 			// 
 			this.animalParentsRemoveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.animalParentsRemoveButton.Enabled = false;
-			this.animalParentsRemoveButton.Location = new System.Drawing.Point(408, 203);
+			this.animalParentsRemoveButton.Location = new System.Drawing.Point(328, 203);
 			this.animalParentsRemoveButton.Name = "animalParentsRemoveButton";
 			this.animalParentsRemoveButton.Size = new System.Drawing.Size(27, 23);
 			this.animalParentsRemoveButton.TabIndex = 11;
@@ -177,7 +167,7 @@
 			this.animalParentsComboBox.FormattingEnabled = true;
 			this.animalParentsComboBox.Location = new System.Drawing.Point(12, 204);
 			this.animalParentsComboBox.Name = "animalParentsComboBox";
-			this.animalParentsComboBox.Size = new System.Drawing.Size(390, 21);
+			this.animalParentsComboBox.Size = new System.Drawing.Size(310, 21);
 			this.animalParentsComboBox.TabIndex = 13;
 			this.animalParentsComboBox.SelectedIndexChanged += new System.EventHandler(this.animalParentsComboBox_SelectedIndexChanged);
 			// 
@@ -190,13 +180,36 @@
 			this.animalParentsLabel.TabIndex = 14;
 			this.animalParentsLabel.Text = "Parents";
 			// 
+			// vetenarianVisits1
+			// 
+			this.vetenarianVisits1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.vetenarianVisits1.Location = new System.Drawing.Point(361, 9);
+			this.vetenarianVisits1.MaximumSize = new System.Drawing.Size(156, 2000000);
+			this.vetenarianVisits1.MinimumSize = new System.Drawing.Size(156, 69);
+			this.vetenarianVisits1.Name = "vetenarianVisits1";
+			this.vetenarianVisits1.Size = new System.Drawing.Size(156, 313);
+			this.vetenarianVisits1.TabIndex = 15;
+			// 
+			// animalSpeciesComboBox
+			// 
+			this.animalSpeciesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.animalSpeciesComboBox.Location = new System.Drawing.Point(12, 143);
+			this.animalSpeciesComboBox.MaximumSize = new System.Drawing.Size(2000000000, 21);
+			this.animalSpeciesComboBox.Name = "animalSpeciesComboBox";
+			this.animalSpeciesComboBox.SelectedSpecies = null;
+			this.animalSpeciesComboBox.Size = new System.Drawing.Size(343, 21);
+			this.animalSpeciesComboBox.TabIndex = 9;
+			// 
 			// AnimalPage
 			// 
 			this.AcceptButton = this.submitButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.cancelButton;
-			this.ClientSize = new System.Drawing.Size(447, 363);
+			this.ClientSize = new System.Drawing.Size(529, 363);
+			this.Controls.Add(this.vetenarianVisits1);
 			this.Controls.Add(this.animalParentsLabel);
 			this.Controls.Add(this.animalParentsComboBox);
 			this.Controls.Add(this.animalParentsRemoveButton);
@@ -239,5 +252,6 @@
 		private System.Windows.Forms.Button animalParentsRemoveButton;
 		private System.Windows.Forms.ComboBox animalParentsComboBox;
 		private System.Windows.Forms.Label animalParentsLabel;
+		private VetenarianVisits vetenarianVisits1;
 	}
 }
