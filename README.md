@@ -6,16 +6,16 @@
 ---
 
 ### Main view
-![Main view screenshot](/devlog/animals searching.png)
+![Main view screenshot](/devlog/animals_searching.png)
 
 ### Create/alter species
-![Create/alter species screenshot](/devlog/edit species.png)
+![Create/alter species screenshot](/devlog/edit_species.png)
 
 ### Create animal
-![Create animal screenshot](/devlog/create animal.png)
+![Create animal screenshot](/devlog/create_animal.png)
 
 ### Book veterinarian visit
-![Book veterinarian visit screenshot](/devlog/book veterinarian.png)
+![Book veterinarian visit screenshot](/devlog/book_veterinarian.png)
 
 ### Database diagram
-![Database diagram screenshot](/devlog/database diagram.png)
+![Database diagram screenshot](/devlog/database_diagram.png)
